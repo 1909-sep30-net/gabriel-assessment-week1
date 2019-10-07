@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Palindrome.Library
 {
-    public class Palindrome
+    public class PalindromeChecker
     {
+
         /*
          * Returns whether or not the given string input is a palindrome
          * 
@@ -18,6 +19,20 @@ namespace Palindrome.Library
                 return false;
             }
 
+            str = removePuncAndSpaces(str);
+
+            // reverse stores str in reverse
+            char[] reverse = str.ToCharArray();
+            Array.Reverse(reverse);
+
+            // if str is a palindrome, 
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] != reverse[i])
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
